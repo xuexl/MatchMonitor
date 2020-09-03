@@ -1,6 +1,9 @@
 ﻿#ifndef QIMAGELABEL_H
 #define QIMAGELABEL_H
 
+#include<opencv2/opencv.hpp>
+
+
 #include <QWidget>
 #include<QLabel>
 
@@ -13,6 +16,11 @@ public:
     ~QImageLabel() override;
     
 public:
+    /*
+     * read
+    */
+    void ImRead();
+    
     /**
      update isPainting
     */
@@ -22,6 +30,10 @@ public:
      * get the part of anchor ???
     */
     
+    /*
+     *get the contour  
+    */
+    void getContour();
     
 protected:
     void paintEvent(QPaintEvent* event) override;
@@ -32,6 +44,10 @@ protected:
 private:
     bool isPainting = false;
     int x1, y1, x2, y2;
+    
+    
+    cv::Mat imgOrigin;
+    
     
 };
 

@@ -26,6 +26,8 @@ add_executable(match
 
   QImageLabel.h
   QImageLabel.cxx
+  QImageViewer.h
+  QImageViewer.cxx
 )
 
 target_link_libraries(match PRIVATE Qt5::Widgets ${OpenCV_LIBS})

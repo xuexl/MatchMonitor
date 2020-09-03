@@ -1,7 +1,6 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include<opencv2/opencv.hpp>
 
 
 #include <QMainWindow>
@@ -26,9 +25,7 @@ private:
      * read picture
     */
 private:
-    void ImRead();
-    cv::Mat img;
-    
+
     
 };
 #endif // MAINWINDOW_H

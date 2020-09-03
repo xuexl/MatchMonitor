@@ -1,8 +1,16 @@
 ﻿#include "QImageLabel.h"
 
+#include<opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
+#include<vector>
+
 #include<QPainter>
 #include<QApplication>
 #include<QMouseEvent>
+
+using namespace std;
+using namespace cv;
 
 
 QImageLabel::QImageLabel(QWidget *parent)
@@ -70,4 +78,57 @@ void QImageLabel::setPainting()
     this->isPainting = !this->isPainting;       
 }
 
+void QImageLabel::ImRead()
+{
+    const char* f = "C:/Users/xxl/Pictures/ov/ali-oss-f4ff0e34-8342-4ff7-ae6b-b6bd11f60229.jpg";    
+    Mat imgMat = imread(f);
+      
+//    cv::cvtColor(imgMat, imgMat, COLOR_BGR2RGB);//颜色空间转换
+    
+    this->imgOrigin = imgMat.clone();
+    
+    Mat gray;
+    cvtColor(this->imgOrigin, gray, COLOR_BGR2GRAY);
+    
+    QImage img = QImage((const uchar*)(gray.data),
+                                gray.cols, gray.rows,
+                                gray.cols*gray.channels(),
+                                QImage::Format_RGB888);
+    
+    this->setPixmap(QPixmap::fromImage(img));
+    this->resize(this->pixmap()->size());
+    this->show();
 
+}
+
+void QImageLabel::getContour()
+{
+    Mat dst, m, gray;
+    dst.create(this->imgOrigin.size(), this->imgOrigin.type());    
+    
+    cvtColor(this->imgOrigin, gray, COLOR_BGR2GRAY);
+        
+    blur(gray, m, Size(3,3));
+           
+    Canny(m, m, 20, 60);
+    dst = Scalar::all(0);
+    
+    this->imgOrigin.copyTo(dst, m);
+//    vector<vector<Point>> contours;
+    
+//    findContours(this->imgOrigin, contours, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0));
+    
+//    Mat drawing = 
+//    drawContours(this->imgOrigin, contours, -1, Scalar(0, 0, 0), 2);
+    
+    
+    QImage img = QImage((const uchar*)(dst.data),
+                                dst.cols, dst.rows,
+                                dst.cols * dst.channels(),
+                                QImage::Format_RGB888);
+    
+    this->setPixmap(QPixmap::fromImage(img));
+    this->resize(this->pixmap()->size());
+    this->show();
+    
+}

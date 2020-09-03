@@ -14,54 +14,104 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QImageLabel" name="lb_view">
-      <property name="styleSheet">
-       <string notr="true">border:1px solid tomato</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
+     <widget class="QWidget" name="widget_2" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QImageLabel" name="lb_view">
+         <property name="styleSheet">
+          <string notr="true">border:1px solid tomato</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="wt_toolbar" native="true">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border:1px solid orange</string>
+         </property>
+         <widget class="QPushButton" name="pb_read">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>读取</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pb_anchor">
+          <property name="geometry">
+           <rect>
+            <x>100</x>
+            <y>10</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>锚定</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="pb_contour">
+          <property name="geometry">
+           <rect>
+            <x>190</x>
+            <y>10</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>轮廓</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="wt_toolbar" native="true">
+     <widget class="QWidget" name="widget" native="true">
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
-        <height>100</height>
+        <width>200</width>
+        <height>16777215</height>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">border:1px solid orange</string>
+       <string notr="true">border:1px solid green</string>
       </property>
-      <widget class="QPushButton" name="pb_read">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>75</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>读取</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pb_anchor">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>10</y>
-         <width>75</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>锚定</string>
-       </property>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QImageLabel" name="lb_anchorView">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_3" native="true"/>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
