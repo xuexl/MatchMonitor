@@ -24,10 +24,17 @@ add_executable(match
   MainWindow.h
   MainWindow.ui  
 
-  QImageLabel.h
-  QImageLabel.cxx
-  QImageViewer.h
+  QImageViewerWithAnchor.cxx
+  QImageViewerWithAnchor.h  
   QImageViewer.cxx
+  QImageViewer.h
+
+  TemplateDialog.cxx
+  TemplateDialog.h
+  TemplateDialog.ui
+  
+  ImageLoader.cxx
+  ImageLoader.h
 )
 
 target_link_libraries(match PRIVATE Qt5::Widgets ${OpenCV_LIBS})
